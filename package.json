@@ -1,0 +1,52 @@
+{
+  "name": "daily-os",
+  "version": "1.0.0",
+  "description": "Personal Daily Operating System",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder --mac",
+    "build:dmg": "electron-builder --mac dmg",
+    "build:zip": "electron-builder --mac zip"
+  },
+  "author": "daxiong",
+  "license": "MIT",
+  "build": {
+    "appId": "com.daxiong.dailyos",
+    "productName": "Daily OS",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg"
+      ],
+      "icon": "build/icon.icns",
+      "darkModeSupport": true
+    },
+    "dmg": {
+      "title": "Daily OS",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "package.json"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^42.0.1",
+    "electron-builder": "^26.8.1"
+  }
+}
